@@ -1,0 +1,1122 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary-light: rgba(71, 16, 224, 0.781);
+  --color-primary-dark: rgba(71, 16, 224, 0.905);
+  --color-green-light: rgba(125, 242, 165, 1);
+  --color-green-dark: rgb(78, 148, 79, 0.5);
+  --color-red-light: rgba(249, 134, 134, 0.8);
+  --color-red-dark: rgba(199, 75, 80, 0.8);
+  --color-grey-light: rgb(228, 228, 228);
+  --color-grey-dark:  rgba(225, 222, 222, 1);
+  --color-green-secondary: rgba(219, 253, 245, 1);
+
+
+  --color-black-text-1: rgb(34, 40, 49, 0.95);
+  --color-white-text-1: rgb(238, 238, 238, 0.95);
+  --overlay-color: rgb(239, 239, 239, 0.8);
+  --modal-border-radius: 12px;
+  --modal-background-color: rgb(255, 255, 255, 1);
+  --modal-box-shadow: rgb(55, 58, 64, 0.3) 1rem 2rem 5rem;
+  --button-box-shadow: rgb(55, 58, 64, 0.2) 0 1rem 2rem;
+
+  --interface-padding: 2rem 4rem;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* login interface */
+.login-interface {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 64px 1fr;
+  background: var(--modal-background-color);
+}
+
+.login__twocol {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: rgba(131, 117, 65, 0.544);
+  background-image: url("img/login-img-min.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-blend-mode: multiply;
+}
+
+.header__heading--login {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 800;
+  font-size: 6rem;
+  color: white;
+  text-transform: capitalize;
+  padding: 2rem 2rem;
+}
+
+.login__container,
+.header__box--login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__form {
+  width: min(40rem, 80%);
+  height: min(40rem, 80%);
+  background-color: var(--color-green-light);
+  padding: 4rem 5rem;
+
+  border-radius: var(--modal-border-radius);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: space-around;
+
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 3rem;
+  color: var(--color-black-text-1);
+}
+
+.login__form > input {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--modal-border-radius);
+}
+
+.login-button {
+  width: min(60%, 100%);
+  margin: 0 auto;
+}
+
+/* Student, Staff, Superuser Interface */
+.interface {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 64px 1fr 5% 1fr;
+  background: var(--modal-background-color);
+}
+
+.header__container {
+  padding: var(--interface-padding);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--color-primary-dark);
+  color: var(--color-white-text-1);
+}
+
+.header__heading {
+  font-size: 2.7rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.room-interface {
+  display: grid;
+  grid-template-rows: 20% 80%;
+  padding: var(--interface-padding);
+}
+
+.room-interface__heading {
+  font-size: 3rem;
+  letter-spacing: 4px;
+}
+
+.line {
+  margin: 0 auto;
+  width: 90vw;
+  height: 3px;
+  background-color: var(--color-black-text-1);
+  opacity: 0.1;
+}
+
+.rooms-notAvailable {
+  inline-size: 100%;
+  font-size: 2.4rem;
+  color: var(--color-black-text-1);
+  opacity: 0.4;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+/* Room Slider */
+.roomsContainer__slider {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  gap: 2rem;
+
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+
+  display: flex;
+  align-items: center;
+}
+
+/* ScrollBar */
+::-webkit-scrollbar {
+  width: 1rem;
+  height: 1.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(77, 97, 199, 0.249);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(6, 25, 109, 0.538);
+  border-radius: 15px;
+  /* width: 2rem;
+  height: 1rem; */
+}
+
+/* Slider Snap Feature */
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+}
+
+.snaps-inline > * {
+  scroll-snap-align: start;
+  /* snap to the closest container */
+}
+
+/* Room Test Setting */
+.room {
+  height: 80%;
+  min-width: 30rem;
+  cursor: pointer;
+}
+
+.room-created:hover {
+  transform: translateY(-2px);
+  transition: all 0.4s;
+
+  box-shadow: var(--button-box-shadow);
+}
+
+.room-created:active,
+.room-created:focus {
+  transform: translateY(2px);
+}
+
+.room-created__picture {
+  min-height: 80%;
+  inline-size: 100%;
+  background-color: coral;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.room-created__name {
+  font-size: 3rem;
+  height: 20%;
+  background-color: blanchedalmond;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 0 1rem;
+}
+
+.room-booked:hover {
+  transform: translateY(-2px);
+  transition: all 0.4s;
+
+  box-shadow: var(--button-box-shadow);
+}
+
+.room-booked:active,
+.room-booked:focus {
+  transform: translateY(2px);
+}
+
+.room-booked > .room-created__picture {
+  background-color: paleturquoise;
+}
+
+.room-booked > .room-created__picture {
+  background-color: paleturquoise;
+}
+/* Create Room Button */
+#createNewRoom {
+  inline-size: 100%;
+  height: 100%;
+  font-size: 10rem;
+  background-color: var(--color-grey-light);
+}
+
+/*Yu Hao: I copied the above element to make a launch button for the JS*/
+#launchRoom {
+  inline-size: 100%;
+  height: 100%;
+  font-size: 10rem;
+  background-color: var(--color-grey-light);
+}
+
+/* Log out Global */
+.logOut__button,
+.logOut__button:visited,
+.logOut__button:link {
+  color: var(--color-white-text-1);
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+/* Modal Global Setting */
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--overlay-color);
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.modal-background {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+}
+
+.modal {
+  width: min(500px, 95%);
+  min-height: 45rem;
+  margin-top: -2rem;
+  padding: 1rem 4rem;
+  background-color: var(--modal-background-color);
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-black-text-1);
+  border-radius: var(--modal-border-radius);
+  overflow: hidden;
+  box-shadow: var(--modal-box-shadow);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/* Close Button Global */
+.closeButton {
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+
+  color: #383838;
+  opacity: 0.3;
+  z-index: 20;
+}
+
+.closeButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.4s;
+}
+
+/* Normal button global */
+.button {
+  font-weight: 600;
+  color: var(--color-black-text-1);
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  transition: all 0.4s;
+
+  box-shadow: var(--button-box-shadow);
+}
+
+.button:active,
+.button:focus {
+  transform: translateY(2px);
+}
+
+.button--green {
+  background-color: var(--color-green-light);
+}
+
+.button--green:hover {
+  background-color: var(--color-green-dark);
+}
+
+.button--red {
+  background-color: var(--color-red-light);
+}
+
+.button--red:hover {
+  background-color: var(--color-red-dark);
+}
+
+/* Hide Modal */
+.hidden {
+  display: none !important;
+}
+
+/* Create Room Modal */
+.createRoom__close-container {
+  position: relative;
+  right: -42rem;
+  top: -0.3rem;
+}
+
+.modal__headerBox {
+  position: relative;
+  width: 150%;
+  height: 20%;
+  background-color: var(--color-primary-dark);
+  left: -5rem;
+  top: -3.2rem;
+
+  padding-left: 3rem;
+  margin-bottom: -3rem;
+
+  z-index: 20;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.modal__heading {
+  color: var(--color-white-text-1);
+}
+
+.createRoom__twoCol {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.createRoom__inputBox {
+  width: 70%;
+}
+
+.createRoom__twoRow {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.createRoom__twoRow--second {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.createRoom__inputBox--time {
+  /*   flex-grow: 1; */
+  width: 45%;
+}
+
+.createRoom__inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+input,
+.createRoom {
+  font-size: 1.4rem;
+  padding: 4px 10px;
+  /*   border-radius: 5px; */
+  /*   border-color: #2D4263; */
+}
+
+/* Nigel */
+
+.viewRoom_textBox {
+  margin-left: auto;
+  margin-right: auto;
+  width: 15rem;
+  display: block;
+}
+
+.viewRoom_intentedCap {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.viewRoom_dateBox {
+  margin-left: auto;
+  margin-right: auto;
+  width: 16.5rem;
+  display: block;
+}
+
+.viewRoom_modalLine {
+  border-top: 1px solid rgb(0, 0, 0);
+}
+
+.line1 {
+  margin: 0 auto;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-black-text-1);
+  opacity: 0.3;
+  margin: 1px 1px 5px 1px;
+}
+
+.line2 {
+  margin: 0 auto;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-black-text-1);
+  opacity: 0.3;
+  margin: 1px 1px 5px 1px;
+}
+
+.line3 {
+  margin: 0 auto;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-black-text-1);
+  opacity: 0.3;
+  margin: 1px 1px 5px 1px;
+}
+
+.viewRoom_padding {
+  padding: 15px 1px 1px 1px;
+}
+
+.bookingSummary_padding {
+  padding: 1px 1px 15px 1px;
+}
+
+.viewRoom_priceBox {
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: 50%;
+  display: block;
+  text-align: center;
+  padding: 15px 1px 15px 1px;
+}
+
+.viewRoom_price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.viewRoom_cancel {
+  margin-left: auto;
+  margin-right: auto;
+  margin: 1px 1px 1px 220px;
+}
+
+.summaryRoom_priceBox {
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: 50%;
+  display: block;
+  text-align: center;
+  margin: 0.8rem;
+}
+
+.summaryRoom_priceBox2 {
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: 50%;
+  display: block;
+  text-align: center;
+  margin: 0.8rem;
+}
+
+.bookingSummary__inputBox {
+  width: 50%;
+}
+
+.bookingSummary-interface {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 64px 1fr;
+  background: var(--modal-background-color);
+}
+
+.bookingSummary__headerBox {
+  position: relative;
+  width: 150%;
+  height: 20%;
+  background-color: var(--color-primary-dark);
+
+  padding-left: 3rem;
+  margin-bottom: 3rem;
+
+  z-index: 20;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bookingSummary__modal {
+  width: 50%;
+  padding: 1rem;
+  margin: 0 auto;
+  font-size: 2.2rem;
+}
+
+.bookingSummary_textBox {
+  width: 50%;
+  text-align: center;
+  margin: 0.8rem;
+}
+
+.bookingSummary_cancel {
+  width: 50%;
+  text-align: center;
+}
+
+.bookingSummary_title {
+  text-align: center;
+  font-size: 3.8rem;
+  margin: 2rem;
+  font-weight: bold;
+}
+
+/* input from here */
+
+.line4 {
+  margin: 0 auto;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-black-text-1);
+  opacity: 0.3;
+  padding: 1px 1px 1px 1px;
+}
+
+.editRoom_textBox {
+  width: 50%;
+  text-align: center;
+  margin: 0.3rem;
+}
+/*Nigel eidt room open close*/
+.overlay2 {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--overlay-color);
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.modal2 {
+  width: min(500px, 95%);
+  min-height: 45rem;
+  margin-top: -2rem;
+  padding: 1rem 4rem;
+  background-color: var(--modal-background-color);
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-black-text-1);
+  border-radius: var(--modal-border-radius);
+  overflow: hidden;
+  box-shadow: var(--modal-box-shadow);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.modal-background2 {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+}
+
+.overlay3 {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--overlay-color);
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 15;
+}
+
+.modal-background3 {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+}
+
+.modal3 {
+  width: min(60rem, 95%);
+  min-height: 10rem;
+  margin-top: 2rem;
+  padding: 1rem 4rem;
+  background-color: var(--modal-background-color);
+  font-family: sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-black-text-1);
+  border-radius: var(--modal-border-radius);
+  overflow: hidden;
+  box-shadow: var(--modal-box-shadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  z-index: 25;
+  position: absolute;
+  float: left;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.confirmRoom__textBox {
+  width: 25%;
+}
+
+
+.modal4 {
+  width: min(60rem, 95%);
+  min-height: 10rem;
+  margin-top: 2rem;
+  padding: 1rem 4rem;
+  background-color: var(--modal-background-color);
+  font-family: sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-black-text-1);
+  border-radius: var(--modal-border-radius);
+  overflow: hidden;
+  box-shadow: var(--modal-box-shadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  z-index: 25;
+  position: absolute;
+  float: left;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay4 {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--overlay-color);
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 15;
+}
+
+.createPromocode__inputBox {
+  width: 50%;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+/* Promocode Message */
+.overlay6 {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--overlay-color);
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+}
+
+.modal6 {
+  width: min(70rem, 95%);
+  min-height: 10rem;
+  margin-top: 2rem;
+  padding: 1rem 4rem;
+  background-color: var(--modal-background-color);
+  font-family: sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-black-text-1);
+  border-radius: var(--modal-border-radius);
+  overflow: hidden;
+  box-shadow: var(--modal-box-shadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  z-index: 35;
+  position: absolute;
+  float: left;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modaltable {
+  width: min(60rem, 85%);
+  min-height: 10rem;
+  margin-top: 2rem;
+  /* padding: 1rem 4rem; */
+  font-size: 1.5rem;
+  text-align: left;
+  background-color: coral;
+  margin: 2rem 4rem;
+  border-radius: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: coral;
+  inline-size: 50%;
+  height: 100%;
+  border-radius: 1rem;
+  padding: 0.5rem 0.7rem;
+}
+
+td {
+  padding: 0.5rem 0.7rem;
+  background-color: blanchedalmond;
+}
+
+.room-created__name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.createRoom__status {
+  font-size: 1.6rem;
+  border-radius: var(--modal-border-radius);
+  padding: 1rem;
+  position: relative;
+  top: -16rem;
+  left: 18rem;
+}
+
+/* /////////////////////////////////////////////// */
+/* SuperUser */
+
+.superUser-workplace {
+  width: 100%;
+  height: 100%;
+  padding: var(--interface-padding);
+  background-color: var(--modal-background-color);
+  /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+  /* font-weight: 800; */
+}
+
+/* END OF BIGGEST BOX FOR SUPERUSER*/
+
+/*first part*/
+.superUser-workplace__header {
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  margin-top: 4rem;
+}
+
+.roomStatus {
+  align-self: center;
+}
+
+.roomStatus_heading {
+  font-size: 3rem;
+  letter-spacing: 4px;
+}
+
+.filterbtnpos {
+  align-self: center;
+  margin-left: 4rem;
+}
+/* end of first part*/
+
+/*second part*/
+
+.superUser-workplace__list {
+  margin-top: 3rem;
+  width: 100%;
+  height: 100%;
+}
+
+/*second part part 1*/
+.superUser-workplace__list--statusbar {
+
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 25% 35% 20%;
+  text-align: center;
+}
+
+.superUser-workplace__list--statusbar > div {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/*end of second part part 1*/
+
+/*second part part 2*/
+.superUser-workplace__list--roomlist {
+  width: 100%;
+  max-height: 50rem;
+  display: grid;
+  grid-auto-rows: auto;
+  row-gap: 1em;
+  overflow-y: auto;
+  overscroll-behavior-inline: contain;
+  /* grid-auto-flow: row;
+  overflow-y: auto;
+  overscroll-behavior-inline: contain; */
+}
+
+/*second part part 2 part a*/
+.superUser-workplace__list--room {
+  display: grid;
+  grid-template-columns: 20% 25% 35% 20%;
+  width: 100%;
+  font-size: 1.6rem;
+  margin: auto 0;
+  background-color: var(--color-grey-dark);
+  height: 5rem;
+  
+  border-radius: var(--modal-border-radius);
+  box-shadow: rgb(55, 58, 64, 0.3) 0 5px 3px;
+}
+
+.superUser-workplace__list--room > p,  .superUser-workplace__list--room > div{
+  display: block;
+  text-align: center;
+  margin: auto 0;
+}
+
+.details-btn {
+  font-weight: 600;
+  color: var(--color-black-text-1);
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--color-green-secondary);
+  box-shadow: rgb(55, 58, 64, 0.3) 0 3px 3px;
+}
+
+.details-btn:hover {
+  transition: all 0.8s;
+  background-color: #7e9e81;
+  color: #f7eeee;
+  /* box-shadow: var(--button-box-shadow); */
+}
+
+.details-btn:active,
+.details-btn:focus {
+  transform: translateY(2px);
+}
+
+.status-tag {
+  font-weight: 600;
+  color: var(--color-black-text-1);
+  padding: 0.8rem .5rem;
+  margin-left: -.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-white-text-1);
+  box-shadow: rgb(55, 58, 64, 0.3) 0 3px 3px;
+}
+
+.tag--pending {
+  background-color: rgba(240, 167, 167, 1);
+}
+
+.tag--approved {
+  background: rgba(125, 242, 165, 1);
+}
+
+.tag--booked {
+  background: rgba(233, 249, 134, 1);
+}
+
+.roomStatus__subcontainer {
+
+}
+
+
+/*end of second part part 2 part a*/
+/*end of second part part 2*/
+/*end of second part*/
+
+
+.filterRoom__subselect {
+  width: 100%;
+  font-size: 2rem;
+
+}
+
+.filterroom__fullbox {
+  width: 100%;
+  height: 20%;
+  background-color: var(--color-grey-dark);
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  padding: 0 .5rem;
+  border-radius: var(--modal-border-radius);
+}
+
+.filter__checkboxes {
+  display: grid;
+  grid-template-rows: repeat(4, 25%);
+  grid-auto-columns: auto;
+  grid-auto-flow: column;
+  overflow-x: auto;
+}
+
+.filterroom__roomNamebox {
+  font-size: 1.6rem;
+}
+
+.filterRoom__timeStart--label {
+  font-size: 2rem;
+}
+
+.filterRoom__substatus {
+  width: 100%;
+  font-size: 2rem;
+}
+
+.filter__status--checkboxes {
+  display: grid;
+  grid-template-rows: repeat(4, 25%);
+  padding: 1rem 0;
+
+
+}
+
+
+.filterstatus__statusNamebox {
+  font-size:1.6rem;
+  padding: 5px 0;
+}
+
+.modal051 {
+  width: min(50rem, 95%);
+  height: max(63rem, 40%);
+  margin-top: 2rem;
+  padding: 1rem 4rem;
+  background-color: var(--modal-background-color);
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-black-text-1);
+  border-radius: var(--modal-border-radius);
+  overflow: hidden;
+  box-shadow: var(--modal-box-shadow);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.cmn-toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+input.cmn-toggle-round + label {
+  padding: 2px;
+  width: 120px;
+  height: 50px;
+  background-color: #dddddd;
+  border-radius: 80px;
+}
+input.cmn-toggle-round + label:before,
+input.cmn-toggle-round + label:after {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: "";
+}
+input.cmn-toggle-round + label:before {
+  right: 1px;
+  background-color: #f1f1f1;
+  border-radius: 60px;
+  transition: background 0.4s;
+  background-color: rgba(240, 167, 167, 1);
+}
+input.cmn-toggle-round + label:after {
+  width: 58px;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: margin 0.4s;
+}
+input.cmn-toggle-round:checked + label:before {
+  background-color: #8ce196;
+}
+input.cmn-toggle-round:checked + label:after {
+  margin-left: 60px;
+}
+
+.buttonAlignMiddle {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="interface">
+      <header class="header__container">
+        <div class="header__box">
+          <h1 class="header__heading">
+            <span class="header__heading--text">Student User</span>
+          </h1>
+        </div>
+        <div class="logOut__container">
+          <a href="index.html" class="logOut__button">Log Out</a>
+        </div>
+      </header>
+
+      <div class="viewRooms room-interface">
+        <div class="viewRooms__headerBox">
+          <h2 class="viewRooms__headerBox--heading room-interface__heading">
+            Available Rooms
+          </h2>
+        </div>
+        <div
+          class="viewRooms__roomsContainer roomsContainer__slider snaps-inline"
+        >
+          <div class="viewRooms__notAvailable rooms-notAvailable hidden">
+            <p class="viewRooms__notAvailable--text">
+              No available rooms at the moment
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lineBreak">
+        <div class="line"></div>
+      </div>
+
+      <div class="viewBookings room-interface">
+        <div class="viewBookings__headerBox">
+          <h2 class="viewBookings__headerBox--heading room-interface__heading">
+            Room(s) Booked
+          </h2>
+        </div>
+        <div
+          class="viewBookings__roomsContainer roomsContainer__slider snaps-inline"
+        >
+          <div class="viewBookings__notAvailable rooms-notAvailable hidden">
+            <p class="viewBookings__notAvailable--text">
+              No bookings at the moment
+            </p>
+          </div>
+
+          <!-- rooms -->
+          <!-- <div class="room  room-booked">
+						<div class="room-created__picture"></div>
+						<h4 class="room-created__name">
+						  <span class="room-created__name-text">Zeri</span>
+						</h4>
+					  </div>
+					  <div class="room room-booked">
+						<div class="room-created__picture"></div>
+						<h4 class="room-created__name">
+						  <span class="room-created__name-text">Ahri</span>
+						</h4>
+					  </div>
+					  <div class="room room-booked">
+						<div class="room-created__picture"></div>
+						<h4 class="room-created__name">
+						  <span class="room-created__name-text">Kennen</span>
+						</h4>
+					  </div>
+					  <div class="room room-booked">
+						<div class="room-created__picture"></div>
+						<h4 class="room-created__name">
+						  <span class="room-created__name-text">Irelia</span>
+						</h4>
+					  </div> -->
+        </div>
+      </div>
+    </main>
+    <!-- ViewRoom-->
+    <div class="overlay hidden"></div>
+		<div class="createRoom modal-background hidden">
+		  <form
+			class="createRoom__testForm modal"
+			method="post"
+			action="record.html"
+		  >
+			<div class="createRoom__headerBox modal__headerBox">
+			  <div class="createRoom__close-container">
+				<span class="closeButton">&#120;</span>
+			  </div>
+			  <h1 class="createRoom__heading modal__heading">View/Book Room</h1>
+			</div>
+		<div class="createRoom__twoCol">
+		  <p class="viewRoom__roomName--text">Room Name:</p>
+		  <p><span class="viewRoom__roomName--variable viewRoom_textBox">1</span></p>
+		</div>
+	
+		<div class="createRoom__twoCol">
+		  <p class="viewRoom__maximumCapacity--text">Maximum Capacity:</p>
+		  <p><span class="viewRoom__maximumCapacity--varible viewRoom_textBox">2</span></p>
+		</div>
+	
+		<div ="createRoom__twoCol">
+		  <label class="viewRoom__intendedCapacity--label" for="intendedCapacity">Intended Capacity:</label>
+		  <input 
+		  class="viewRoom__intendedCapacity--input viewRoom_intentedCap "
+		  type="number"
+		  name="intendedCapacity"
+		  id="intendedCapacity"
+		  required
+		  min="1"
+		  />
+		</div>
+	
+		<div class="createRoom__twoCol">
+		  <p class="viewRoom__date--text">Date:</p>
+		  <p><span class="viewRoom__date--varible viewRoom_dateBox">2/11/11</span></p>
+		</div>
+			
+	<div class="createRoom__twoRow">
+	  <div class="createRoom__twoRow--first">
+		<div>
+		  <h4 class="viewRoom__availableSlots--text">Available Time (<span class="viewRoom__timeSpan--varible">TIMESPAN</span>)</h4>
+		</div>
+		
+		<div class="viewRoom__line1 line1"></div>
+
+	  <div class="viewRoom__time--input">
+		<label class="viewRoom__timeStart--label" for="timeStart"></label>
+		<div class="createRoom__twoRow--second">
+		<input class="viewRoom__timeStart--input createRoom__inputBox--time" type="time" name="timestart" id="timestart"  required>
+	
+		<p class="createRoom__inputBox--text">To</p>
+	
+		<label class="viewRoom__timeEnd--label" for="timeEnd"></label>
+		<input class="viewRoom__timeEnd--input createRoom__inputBox--time" type="time" name="timeend" id="timeend" required>
+		</div>
+	  </div>
+	</div>
+	
+		<div class="viewRoom__bookedTimeSlot ">
+		<h4 class="viewRoom__bookedTimeSlot--text viewRoom_padding">Booked Time Slot</h4>
+			<div class="viewRoom__line2 line2">
+			</div>
+		<p><span class="viewRoom__bookedTimeSlot--varible">bookedSlot</span></p>  
+		</div>
+	
+	
+		<div class="createRoom__twoCol">
+		  <p class="viewRoom__price--text">Price:</p>
+		  <p class="viewRoom__price--text2 viewRoom_priceBox">&#36;<span class="viewRoom__price--varible">priceSet</span> per hour</p>
+		</div>
+	
+		
+		<div class="viewRoom__inputs">
+		  <input
+		  class="viewRoom__bookButton--input button--green button"
+		  type="submit"
+		  value="Book Room" 
+		  />
+	
+		  <input
+		  class="viewRoom__cancelButton--input viewRoom_cancel button--red button"
+		  type="reset"
+		  value="Cancel"
+		  />
+		</div>
+	  </form>
+	  </div>
+	</div>
+    <!--Edit room-->
+    <div class="overlay2 hidden"></div>
+    <div class="editRoom modal-background2 hidden">
+      <form
+        class="editRoom__testForm modal2"
+        method="post"
+        action="record.html"
+      >
+        <div class="editRoom__headerBox modal__headerBox">
+          <div class="createRoom__close-container">
+            <span class="closeButton">&#120;</span>
+          </div>
+          <h1 class="editRoom__heading modal__heading">
+            View/Edit Room Booking
+          </h1>
+        </div>
+
+        <div class="createRoom__twoCol">
+          <p class="editRoom__roomName--text">Room Name:</p>
+          <p class="editRoom__roomName editRoom_textBox">
+            <span class="editRoom__roomName--variable">1</span>
+          </p>
+        </div>
+
+        <div class="createRoom__twoCol">
+          <p class="editRoom__maximumCapacity--text">Maximum Capacity:</p>
+          <p class="editRoom__maximumCapacity editRoom_textBox">
+            <span class="editRoom__maximumCapacity--varible">2</span>
+          </p>
+        </div>
+
+        <div class="createRoom__twoCol">
+          <label
+            class="editRoom__intendedCapacity--label"
+            for="intendedCapacity"
+            >Intended Capacity:</label
+          >
+          <input
+            class="editRoom__intendedCapacity--input editRoom_textBox"
+            type="number"
+            name="intendedCapacity"
+            id="intendedCapacity"
+            required
+            min="1"
+      
+          />
+        </div>
+
+        <div class="createRoom__twoCol">
+          <p class="editRoom__date--text">Date:</p>
+          <p class="editRoom__date editRoom_textBox">
+            <span class="editRoom__date--varible">2/11/11</span>
+          </p>
+        </div>
+
+        <div>
+          <h4 class="editRoom__bookedSlots--text">Booked Slots</h4>
+        </div>
+        <div class="editRoom__line1 line4"></div>
+        <div>
+          <p class="editRoom__selectedtime1--text" for="time1">
+            <span class="editRoom__time1start--varible">time1start</span> to
+            <span class="editRoom__time1end--varible">time1end</span>
+          </p>
+        </div>
+        <div class="editRoom__line1 line4"></div>
+
+        <div class="createRoom__twoCol">
+          <p class="editRoom__discountPrice--text">
+            Total Price after Discount:
+          </p>
+          <p class="editRoom__discountPrice editRoom_textBox">
+            &#36;<span class="editRoom__discountPrice--varible">5</span>
+          </p>
+        </div>
+
+        <div class="editRoom__inputs createRoom__twoCol">
+          <input
+            class="editRoom__confirmButton--input button--green button"
+            type="button"
+            value="Confirm"
+          />
+
+          <input
+            class="editRoom__cancelButton--input button--red button"
+            type="reset"
+            value="Cancel Booking"
+          />
+        </div>
+      </form>
+   </div>
+
+   <!-- Confirm cancel -->
+
+	<div>
+		<div class="overlay3 hidden"></div>
+		<div class="editRoom modal3 hidden">
+		<p class="cancelRoom__yesNo">Are you sure you want to cancel the booking?</p>
+		<p class="cancelRoom__yesMessage hidden">Booking has been cancelled.</p>
+		
+		<div class="cancelRoom__inputs createRoom__twoCol">
+      <button
+      class="cancelRoom__yesButton--input button--green button confirmRoom__textBox"
+      type="button"
+     
+      >Yes</button>
+      
+      <button
+      class="cancelRoom__noButton--input button--red button confirmRoom__textBox"
+      type="button"
+    
+      >No</button>
+	  </div>
+		
+	  </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>

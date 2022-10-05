@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="src/styles.css" />
+
+    <title>Staff</title>
+  </head>
+  <body>
+    <main class="interface">
+      <header class="header__container">
+        <div class="header__box">
+          <h1 class="header__heading">
+            <span class="header__heading--text">Staff User</span>
+          </h1>
+        </div>
+        <div class="logOut__container">
+          <a href="index.html" class="logOut__button">Log Out</a>
+        </div>
+      </header>
+
+      <div class="viewRooms room-interface">
+        <div class="viewRooms__headerBox createRoom__twoCol">
+          <h2 class="viewRooms__headerBox--heading room-interface__heading">
+            Rooms
+          </h2>
+
+          <input
+            class="createPromocode__createButton--input button button--green"
+            type="button"
+            value="Create Promo Code"
+            id="createPromocode_createBtn"
+          />
+        </div>
+
+
+        <div
+          class="viewRooms__roomsContainer roomsContainer__slider snaps-inline"
+        >
+          <div class="room create-new-room--button">
+            <!-- the button is disabled -->
+            <button id="createNewRoom" class="button">&#43;</button>
+          </div>
+
+          <!-- rooms -->
+          
+ 
+          <!-- <div class="room room-created">
+            <div class="room-created__picture"></div>
+            <h4 class="room-created__name">
+              <span class="room-created__name-text">Ahri</span>
+            </h4>
+          </div>
+          <div class="room room-created">
+            <div class="room-created__picture"></div>
+            <h4 class="room-created__name">
+              <span class="room-created__name-text">Kennen</span>
+            </h4>
+          </div>
+          <div class="room room-created">
+            <div class="room-created__picture"></div>
+            <h4 class="room-created__name">
+              <span class="room-created__name-text">Irelia</span>
+            </h4>
+          </div> -->
+        </div>
+      </div>
+
+     <!-- created Promocode data -->
+     
+      <div class="promocodeData">
+          
+          <table class="modaltable">
+                  <tr>
+                    <th>Created Promo Codes</th>
+                    <th>Discount Applied</th>
+                  </tr>
+              
+            </table>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="overlay hidden"></div>
+    <div class="createRoom modal-background hidden">
+      <form
+        class="createRoom__testForm modal"
+        method="post"
+        action="record.html"
+      >
+        <div class="creatRoom__headerBox modal__headerBox">
+          <div class="createRoom__close-container">
+            <span class="closeButton">&#120;</span>
+          </div>
+          <h1 class="createRoom__heading modal__heading">Create Room</h1>
+        </div>
+
+        <div class="createRoom__twoCol">
+          <label class="createRoom__roomName--label" for="roomName"
+            >Room Name:</label
+          >
+          <input
+            class="createRoom__roomName--input createRoom__inputBox"
+            type="text"
+            name="roomName"
+            id="createRoom_roomName"
+            required
+          />
+        </div>
+
+        <div class="createRoom__twoCol">
+          <label class="createRoom__capacity--label" for="capacity"
+            >Capacity:</label
+          >
+          <input
+            class="createRoom__capacity--input createRoom__inputBox"
+            type="number"
+            name="capacity"
+            id="createRoom_capacity"
+            required
+            min="1"
+          />
+        </div>
+
+        <div class="createRoom__twoCol">
+          <label class="createRoom__date--label" for="date">Date:</label>
+          <input
+            class="createRoom__date--input createRoom__inputBox"
+            type="date"
+            name="createRoom_date"
+            id="createRoom_date"
+            required
+          />
+        </div>
+
+        <div class="createRoom__twoRow">
+          <div class="createRoom__twoRow--first">
+            <label class="createRoom__timeStart--label" for="timestart"
+              >Available time for booking</label
+            >
+            <label class="createRoom__timeEnd--label" for="timeend"></label>
+          </div>
+          <div class="createRoom__twoRow--second">
+            <input
+              class="createRoom__timestart--input createRoom__inputBox--time"
+              type="time"
+              name="timestart"
+              id="createRoom_startTime"
+              required
+            />
+            <p class="createRoom__inputBox--text">To</p>
+
+            <input
+              class="createRoom__timeEnd--input createRoom__inputBox--time"
+              type="time"
+              name="timeend"
+              id="createRoom_endTime"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="createRoom__twoCol">
+          <label class="createRoom__price--label" for="price"
+            >Price per hour (&#36;)</label
+          >
+          <input
+            class="createRoom__price--input createRoom__inputBox--time"
+            type="number"
+            name="price"
+            id="createRoom_price"
+            min="0"
+            required
+          />
+        </div>
+
+        <div class="createRoom__inputs">
+          <input
+            class="createRoom__createButton--input button button--green"
+            type="button"
+            value="Create"
+            id="createRoom_createBtn"
+          />
+          <input
+            class="createRoom__createLaunchButton--input button button--green"
+            type="button"
+            value="Create and Launch"
+            id="createRoom_createAndLaunchBtn"
+          />
+          <input
+            class="createRoom__cancelButton--input button button--red"
+            type="reset"
+            value="Cancel"
+          />
+        </div>
+      </form>
+    </div>
+
+        <!-- promocode -->
+        <div>
+          <div class="overlay4 hidden"></div>
+            <form
+              class="createPromocode__test modal4 hidden"
+              method="post"
+              action="record.html"
+            >
+    
+            <div class="createRoom__twoCol">
+                <label class="createRoom__roomName--label" for="roomName"
+                  >Promo Code Name:</label
+                >
+                <input
+                  class="createPromocode__promoName--input createPromocode__inputBox"
+                  type="text"
+                  name="promoname"
+                  id="createPromocode_promoName"
+                  required
+                />
+              </div>
+            <div class="createRoom__twoCol">
+              <label>Promo Code Discount:</label>
+              <select class="createPromocode__discount createPromocode__inputBox" id="PromoCodePercent" name="PromoCodePercent">
+                <option id="Promocode__10%" value="10%">10%</option>
+                <option id="Promocode__20%" value="20%">20%</option>
+                <option id="Promocode__30%" value="30%">30%</option>
+                <option id="Promocode__40%" value="40%">40%</option>
+                <option id="Promocode__50%" value="50%">50%</option>
+              </select>
+            </div>
+            <div class="createRoom__inputs">
+                <input
+                  class="promocode__createdButton--input button button--green"
+                  type="button"
+                  value="Create"
+                  id="createPromocode_createBtn"
+                />
+    
+                <input
+                  class="promocodecancel__canceledButton--input button button--red"
+                  type="button"
+                  value="Cancel"
+                />
+              </div>
+            </form>
+          </div>
+          <!-- promocode created -->
+          <div class="overlay6 hidden"></div>
+          <div class="promocode__createdMessage modal6 hidden">
+            <p>Promo code has been created.<p>
+          </div>
+        </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>

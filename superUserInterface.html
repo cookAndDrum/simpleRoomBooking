@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="src/styles.css">
+  
+  <title>SuperUser Interface</title>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<!-- SUPER USER 4 !!!!!!!!!!!!!-->
+
+    <main class="superUser-interface">
+        <!--  1st division  -->
+        <header class="header__container">
+          <div class="header__box">
+            <h1 class="header__heading">
+              <span class="header__heading--text">Super User</span>
+            </h1>
+          </div>
+          <div class="logOut__container">
+            <a href="index.html" class="logOut__button">Log Out</a>
+          </div>
+        </header>
+      
+         <!--  2nd Division  -->
+         <div class="superUser-workplace">
+          <!--   1st division   -->
+          <div class="superUser-workplace__header">
+              <div class="roomStatus">
+                <h1 class="roomStatus_heading">Room Status</class>
+              </div>
+              <div class="filterbtnpos"><button type="roomStatus__filterbtn" class="button">Filter</div>
+          </div>
+          <!--  2nd division -->
+          <div class="superUser-workplace__list">
+            <!--    1st division    -->
+            <div class="superUser-workplace__list--statusbar">
+                <div h2 class="roomStatus__roomheading">Room</div>
+                <div h2 class="roomStatus__dateheading">Date</div>
+                <div h2 class="roomStatus__statusheading">Status</div>
+                <div class="emptyboxnth"></div>
+            </div>
+      
+              <!--    2nd division      -->
+              <div class="superUser-workplace__list--roomlist">
+                <!--      1st room      -->
+                <!-- <div class ="superUser-workplace__list--room">
+                  <p><span class="roomStatus__subcontainer">Room</span></p>
+                  <p><span class="roomStatus__subcontainer">01/05/22</span></p>
+                  <p><span class="roomStatus__subcontainer status-tag tag--pending">Pending Approval</span></p>
+                  <div class="detailbtnpos"><button type="roomStatus__subcontainer" class="details-btn">Details</button></div>
+                </div> -->
+                <!--    2nd room        -->
+                <!-- <div class ="superUser-workplace__list--room">
+                  <p><span class="roomStatus__subcontainer">Room</span></p>
+                  <p><span class="roomStatus__subcontainer">01/05/22</span></p>
+                  <p><span class="roomStatus__subcontainer status-tag tag--approved">Approved</span></p>
+                  <div class="detailbtnpos"><button type="roomStatus__subcontainer" class="details-btn">Details</button></div>
+                </div> -->
+                <!-- <div class ="superUser-workplace__list--room">
+                  <p><span class="roomStatus__subcontainer">Room</span></p>
+                  <p><span class="roomStatus__subcontainer">01/05/22</span></p>
+                  <p><span class="roomStatus__subcontainer status-tag tag--booked">Booked</span></p>
+                  <div class="detailbtnpos"><button type="roomStatus__subcontainer" class="details-btn">Details</button></div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+      </main>
+
+<!-- END OF SUPER USER 4 !!!!!!!!!!!!!-->
+
+<!--SUPER USER 6 -->
+
+<div>
+  <div class="overlay2 hidden"></div>
+  <div class="filterRoom modal-background2 hidden">
+    <form class="filterRoom__testForm modal051" method="post" action="record.html">
+      <div class="filterRoom__headerBox modal__headerBox">
+        <div class="createRoom__close-container">
+          <span class="closeButton">&#120;</span>
+        </div>
+        <h1 class="editRoom__heading modal__heading">
+          Filter Room
+        </h1>
+      </div>
+
+
+
+      <h2 class="filterRoom__subselect">Select Room</h2>
+
+
+      <div class="filterroom__fullbox">
+        <div class="selected__checkboxes">
+
+        </div>
+        <div class="filter__checkboxes">
+
+          <!-- <div class="filterroom__roomNamebox"><input class="filterroom__subbox" type="checkbox"
+              value="zeri"><span>Zeri</span></div>
+          <div class="filterroom__roomNamebox"><input class="filterroom__subbox" type="checkbox"
+              value="ahri"><span>Ahri</span></div>
+          <div class="filterroom__roomNamebox"><input class="filterroom__subbox" type="checkbox"
+              value="brand"><span>Brand</span></div>
+          <div class="filterroom__roomNamebox"><input class="filterroom__subbox" type="checkbox"
+              value="zeri"><span>Zeri</span></div>
+          <div class="filterroom__roomNamebox"><input class="filterroom__subbox" type="checkbox"
+              value="ahri"><span>Ahri</span></div>
+          <div class="filterroom__roomNamebox"><input class="filterroom__subbox" type="checkbox"
+              value="brand"><span>Brand</span></div>
+          <div class="filterroom__roomNamebox"><input class="filterroom__subbox" type="checkbox"
+              value="brand"><span>Brand</span></div>
+          <div class="filterroom__roomNamebox"><input class="filterroom__subbox" type="checkbox"
+              value="zeri"><span>Zeri</span></div>
+          <div class="filterroom__roomNamebox"><input class="filterroom__subbox" type="checkbox"
+              value="ahri"><span>Ahri</span></div>
+          <div class="filterroom__roomNamebox"><input class="filterroom__subbox" type="checkbox"
+              value="brand"><span>Brand</span></div> -->
+        </div>
+      </div>
+
+
+    <div class="createRoom__twoRow">
+      <div class="filterRoom__twoRow--first">
+        <label class="filterRoom__dateStart--label" for="dateStart"
+          >Select date</label
+        >
+        <label class="filterRoom__dateEnd--label" for="dateEnd"></label>
+      </div>
+      <div class="createRoom__twoRow--second">
+        <input
+          class="filterRoom__dateStart--input createRoom__inputBox--date"
+          type="date"
+          name="dateStart"
+          id="filterRoom_startDate"
+          required
+        />
+        <p class="createRoom__inputBox--text">To</p>
+  
+        <input
+          class="filterRoom__dateEnd--input createRoom__inputBox--date"
+          type="date"
+          name="dateEnd"
+          id="createRoom_endDate"
+          required
+        />
+      </div>
+    </div>
+
+    
+    <h2 class="filterRoom__substatus">Select Status</h2>
+
+
+    <div class="filterroom__fullbox"> 
+        <div class="filter__status--checkboxes">
+            <div class="filterstatus__statusNamebox"><input type="checkbox" class="pendingApproval__checkbox" value="Pending Approval">        <span>Pending Approval</span></div>
+            <div class="filterstatus__statusNamebox"><input type="checkbox" class="approved__checkbox" value="Approved">                <span>Approved</span></div>
+            <div class="filterstatus__statusNamebox"><input type="checkbox" class="booked__checkbox" value="Booked">                   <span>Booked</span></div>
+        </div>
+  
+    </div>
+
+
+      <div class="filterRoom__inputs">
+        <input class="filterRoom__bookButton--input button--green button" type="button" value="Apply filter" />
+
+        <input class="filterRoom__cancelButton--input button--red button" type="button" value="Cancel" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- END OF SUPER USER 6 -->
+
+
+
+
+<!-- SUPER USER 9 -->
+
+<div class="overlay3 hidden"></div>
+<div class="editRoom modal-background3 hidden">
+<form
+  class="editRoom__testForm modal2"
+  method="post"
+  action="record.html"
+>
+  <div class="editRoom__headerBox modal__headerBox">
+    <div class="createRoom__close-container">
+      <span class="closeButton">&#120;</span>
+    </div>
+    <h1 class="editRoom__heading modal__heading">
+      Room Details
+    </h1>
+  </div>
+
+  <div class="createRoom__twoCol">
+    <p class="editRoom__roomName--text">Room Name:</p>
+    <p class="editRoom__roomName editRoom_textBox">
+      <span class="editRoom__roomName--variable">1</span>
+    </p>
+  </div>
+
+  <div class="createRoom__twoCol">
+    <p class="editRoom__maximumCapacity--text">Capacity:</p>
+    <p class="editRoom__maximumCapacity editRoom_textBox">
+      <span class="editRoom__maximumCapacity--varible">2</span>
+    </p>
+  </div>
+
+  <div class="createRoom__twoCol">
+    <label
+      class="editRoom__intendedCapacity--label"
+      for="intendedCapacity"
+      >Available Time for Booking</label
+    >
+   
+  <p class="editRoom__availableBookingTimeRange--varible editRoom_textBox"><span>TIME TO TIME</span></p>
+  </div>
+
+  <div class="createRoom__twoCol">
+    <p class="editRoom__date--text">Date:</p>
+    <p class="editRoom__date editRoom_textBox">
+      <span class="editRoom__date--varible">2/11/11</span>
+    </p>
+  </div>
+
+  <div class="createRoom__twoCol">
+      <p class="editRoom__discountPrice--text">
+        Price Per Hour:
+      </p>
+      <p class="editRoom__discountPrice editRoom_textBox">
+        &#36;<span class="editRoom__discountPrice--varible">5</span>
+      </p>
+    </div>
+
+
+    <div class="createRoom__twoCol">
+        <p>Pending Approval</p>
+        <div class="switch">
+            <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+            <label for="cmn-toggle-1"></label>
+          </div>
+        <p>Approved</p>
+        </label>
+    </div>
+
+  <div class="bookingSlotsList">
+    <h4 class="bookingSlotsList__bookedSlots--text">Booked Slots</h4>
+  <div class="bookingSlotsList__line1 line4"></div>
+  <div class="bookingSlotsList__container">
+    <p class="bookingSlotsList__selectedtime1--text" for="time1">
+      <span class="bookingSlotsList__time1start--varible">time1start</span> to
+      <span class="bookingSlotsList__time1end--varible">time1end</span>
+    </p>
+  </div>
+  <div class="bookingSlotsList__line1 line4"></div>
+  </div>
+
+
+  <div class="bookingSlotsList__inputs createRoom__twoCol">
+    <input
+      class="bookingSlotsList__confirmButton--input button--green button"
+      type="button"
+      value="OK"
+    />
+
+  </div>
+</form>
+</div>
+
+
+
+    <script src="src/index.js"></script>
+</body>
+</html>
