@@ -3,6 +3,7 @@
 // All variable pls declare in the top section.
 
 // ID Password Reference Only
+// Hello
 const users = [
   {
     username: "sonic",
